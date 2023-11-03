@@ -4,6 +4,7 @@ COPY . /var/www/html/softy-pinko-front-end
 COPY softy-pinko-front-end.conf /etc/nginx/conf.d/default.conf
 
 RUN chown -R nginx:nginx /var/www/html/softy-pinko-front-end
+RUN cdmod =x nginx:nginx /var/www/html/softy-pinko-front-end
 
 EXPOSE 9000
 
