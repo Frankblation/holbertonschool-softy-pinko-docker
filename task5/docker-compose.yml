@@ -1,24 +1,25 @@
 version: '3'
 
 services:
-  backend:
+  back-end:
     build:
       context: ./back-end
     ports:
       - "5252:5252"
-  frontend:
+
+  front-end:
     build:
       context: ./front-end
     ports:
-      - "9000:9000"
+      - "9000:80"
     depends_on:
-      - backend
+      - back-end
+
   proxy:
     build:
       context: ./proxy
-      dockerfile: Dockerfile
     ports:
       - "80:80"
     depends_on:
-      - frontend
-      - backend
+      - front-end
+      - back-end
